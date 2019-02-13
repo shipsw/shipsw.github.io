@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.guod.bid">
-  <title>在windows上用netsh动态配置端口转发 | 电子傻瓜</title>
+  <title>Tag: Linux | 电子傻瓜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在windows上用netsh动态配置端口转发 在Windows中，如果想做端口转发，可以使用Windows自身携带的服务:netsh，使用netsh interface portproxy指令，新增和修改配置信息后，即时生效，并且重启系统后配置信息仍然存在，非常方便。适用于WindowsXP、Windows7，其他的版本还没有试过，支持IPv4和IPv6，但是只支持TCP协议。 新增端口转发12">
-<meta name="keywords" content="Windows 网络">
-<meta property="og:type" content="article">
-<meta property="og:title" content="在windows上用netsh动态配置端口转发">
-<meta property="og:url" content="http://blog.guod.bid/2018/06/15/在windows上用netsh动态配置端口转发/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="电子傻瓜">
+<meta property="og:url" content="http://blog.guod.bid/tags/Linux/index.html">
 <meta property="og:site_name" content="电子傻瓜">
-<meta property="og:description" content="在windows上用netsh动态配置端口转发 在Windows中，如果想做端口转发，可以使用Windows自身携带的服务:netsh，使用netsh interface portproxy指令，新增和修改配置信息后，即时生效，并且重启系统后配置信息仍然存在，非常方便。适用于WindowsXP、Windows7，其他的版本还没有试过，支持IPv4和IPv6，但是只支持TCP协议。 新增端口转发12">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-02-13T09:32:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在windows上用netsh动态配置端口转发">
-<meta name="twitter:description" content="在windows上用netsh动态配置端口转发 在Windows中，如果想做端口转发，可以使用Windows自身携带的服务:netsh，使用netsh interface portproxy指令，新增和修改配置信息后，即时生效，并且重启系统后配置信息仍然存在，非常方便。适用于WindowsXP、Windows7，其他的版本还没有试过，支持IPv4和IPv6，但是只支持TCP协议。 新增端口转发12">
+<meta name="twitter:title" content="电子傻瓜">
   
     <link rel="alternative" href="/atom.xml" title="电子傻瓜" type="application/atom+xml">
   
@@ -155,190 +150,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-在windows上用netsh动态配置端口转发" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      在windows上用netsh动态配置端口转发
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/02/13/Linux下的磁盘缓存/" class="archive-article-date">
+  	<time datetime="2019-02-13T08:24:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/02/13/Linux下的磁盘缓存/">Linux下的磁盘缓存</a>
     </h1>
   
 
-        
-        <a href="/2018/06/15/在windows上用netsh动态配置端口转发/" class="archive-article-date">
-  	<time datetime="2018-06-15T08:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="在windows上用netsh动态配置端口转发"><a href="#在windows上用netsh动态配置端口转发" class="headerlink" title="在windows上用netsh动态配置端口转发"></a>在windows上用netsh动态配置端口转发</h1><hr>
-<p>在Windows中，如果想做端口转发，可以使用Windows自身携带的服务:netsh，使用netsh interface portproxy指令，新增和修改配置信息后，即时生效，并且重启系统后配置信息仍然存在，非常方便。适用于WindowsXP、Windows7，其他的版本还没有试过，支持IPv4和IPv6，但是只支持TCP协议。</p>
-<h2 id="新增端口转发"><a href="#新增端口转发" class="headerlink" title="新增端口转发"></a>新增端口转发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 - 添加通过 IPv4 的 IPv4 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy add v4tov6 - 添加通过 IPv6 的 IPv4 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy add v6tov4 - 添加通过 IPv4 的 IPv6 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy add v6tov6 - 添加通过 IPv6 的 IPv6 和代理连接到的侦听项目。</span><br></pre></td></tr></table></figure>
-<h3 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 [listenport=]&lt;integer&gt;|&lt;servicename&gt;</span><br><span class="line">            [connectaddress=]&lt;IPv4 address&gt;|&lt;hostname&gt;</span><br><span class="line">            [[connectport=]&lt;integer&gt;|&lt;servicename&gt;]</span><br><span class="line">            [[listenaddress=]&lt;IPv4 address&gt;|&lt;hostname&gt;]</span><br><span class="line">            [[protocol=]tcp]</span><br></pre></td></tr></table></figure>
-<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><p>将本地的8080端口的数据转发至192.168.56.101上的8080端口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=8080 connectaddress=192.168.56.101 connectport=8080</span><br></pre></td></tr></table></figure></p>
-<p>将本地的9090端口的数据转发至192.168.56.101上的9090端口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=9090 connectaddress=192.168.56.101 connectport=9090</span><br></pre></td></tr></table></figure></p>
-<h2 id="显示所有的端口转发配置信息"><a href="#显示所有的端口转发配置信息" class="headerlink" title="显示所有的端口转发配置信息"></a>显示所有的端口转发配置信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy show all - 显示所有端口代理参数。</span><br><span class="line">netsh interface portproxy show v4tov4 - 显示 IPv4 代理连接到另一个 IPv4 端口的参数。</span><br><span class="line">netsh interface portproxy show v4tov6 - 显示 IPv4 代理连接到 IPv6 的参数。</span><br><span class="line">netsh interface portproxy show v6tov4 - 显示 IPv6 代理连接到 IPv4 的参数。</span><br><span class="line">netsh interface portproxy show v6tov6 - 显示 IPv6 代理连接到另一个 IPv6 端口的参数。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy show all</span><br></pre></td></tr></table></figure>
-<h2 id="修改端口转发配置"><a href="#修改端口转发配置" class="headerlink" title="修改端口转发配置"></a>修改端口转发配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy set v4tov4     - 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy set v4tov6     - 更新通过 IPv6 的 IPv4 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy set v6tov4     - 更新通过 IPv4 的 IPv6 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy set v6tov6     - 更新通过 IPv6 的 IPv6 和代理连接到的侦听项目。</span><br></pre></td></tr></table></figure>
-<h3 id="命令语法-1"><a href="#命令语法-1" class="headerlink" title="命令语法"></a>命令语法</h3><p>以netsh interface portproxy set v4tov4为例，其语法格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy set v4tov4 [listenport=]&lt;integer&gt;|&lt;servicename&gt;</span><br><span class="line">            [connectaddress=]&lt;IPv4 address&gt;|&lt;hostname&gt;</span><br><span class="line">            [[connectport=]&lt;integer&gt;|&lt;servicename&gt;]</span><br><span class="line">            [[listenaddress=]&lt;IPv4 address&gt;|&lt;hostname&gt;]</span><br><span class="line">            [[protocol=]tcp]</span><br></pre></td></tr></table></figure></p>
-<h3 id="使用示例-1"><a href="#使用示例-1" class="headerlink" title="使用示例"></a>使用示例</h3><p>将本地9090端口改成转发至192.168.56.101的9080端口中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy set v4tov4 listenport=9090 connectaddress=192.168.56.101 connectport=9080</span><br></pre></td></tr></table></figure></p>
-<h2 id="删除端口转发配置"><a href="#删除端口转发配置" class="headerlink" title="删除端口转发配置"></a>删除端口转发配置</h2><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy delete v4tov4  - 删除通过 IPv4 的 IPv4 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy delete v4tov6  - 删除通过 IPv6 的 IPv4 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy delete v6tov4  - 删除通过 IPv4 的 IPv6 和代理连接到的侦听项目。</span><br><span class="line">netsh interface portproxy delete v6tov6  - 删除通过 IPv6 的 IPv6 和代理连接到的侦听项目。</span><br></pre></td></tr></table></figure>
-<h3 id="命令语法-2"><a href="#命令语法-2" class="headerlink" title="命令语法"></a>命令语法</h3><p>以netsh interface portproxy delete v4tov4为例，其语法格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy delete v4tov4 [listenport=]&lt;integer&gt;|&lt;servicename&gt;</span><br><span class="line">            [[listenaddress=]&lt;IPv4 address&gt;|&lt;hostname&gt;]</span><br><span class="line">            [[protocol=]tcp]</span><br></pre></td></tr></table></figure></p>
-<p>参数:<br>       标记             值<br>       listenport     - 要侦听的 IPv4 端口。<br>       listenport     - 要侦听的 IPv4 地址。<br>       protocol       - 要使用的协议。当前仅支持 TCP。<br>注释: 删除要侦听的 IPv4 的项并通过 Ipv4 代理连接。  </p>
-<h3 id="使用示例-2"><a href="#使用示例-2" class="headerlink" title="使用示例"></a>使用示例</h3><p>删除本地端口9090的端口转发配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy delete v4tov4 listenport=9090</span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Windows 网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://blog.guod.bid/2018/06/15/在windows上用netsh动态配置端口转发/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/02/13/Linux下的磁盘缓存/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux下的磁盘缓存
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/01/31/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -361,9 +226,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

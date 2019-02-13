@@ -9,13 +9,14 @@
   <title>Linux下的磁盘缓存 | 电子傻瓜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Linux下的磁盘缓存 Linux可以兼容不同的文件系统，使用的是VFS(Virtual File System)技术。该技术在提供兼容性的同时，更提供了磁盘缓存机制。VFS的磁盘缓存机制是一种软件机制，允许将原本存储在磁盘上的信息存储到内存中，方便对文件进行更加快速的访问，而不必访问磁盘。其中缓存分为以下几种：  目录项缓存：主要存放文件路径名和目录项对象 索引节点缓存：存放描述磁盘索引节点的对">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下的磁盘缓存">
 <meta property="og:url" content="http://blog.guod.bid/2019/02/13/Linux下的磁盘缓存/index.html">
 <meta property="og:site_name" content="电子傻瓜">
 <meta property="og:description" content="Linux下的磁盘缓存 Linux可以兼容不同的文件系统，使用的是VFS(Virtual File System)技术。该技术在提供兼容性的同时，更提供了磁盘缓存机制。VFS的磁盘缓存机制是一种软件机制，允许将原本存储在磁盘上的信息存储到内存中，方便对文件进行更加快速的访问，而不必访问磁盘。其中缓存分为以下几种：  目录项缓存：主要存放文件路径名和目录项对象 索引节点缓存：存放描述磁盘索引节点的对">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-02-13T09:24:18.000Z">
+<meta property="og:updated_time" content="2019-02-13T09:33:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下的磁盘缓存">
 <meta name="twitter:description" content="Linux下的磁盘缓存 Linux可以兼容不同的文件系统，使用的是VFS(Virtual File System)技术。该技术在提供兼容性的同时，更提供了磁盘缓存机制。VFS的磁盘缓存机制是一种软件机制，允许将原本存储在磁盘上的信息存储到内存中，方便对文件进行更加快速的访问，而不必访问磁盘。其中缓存分为以下几种：  目录项缓存：主要存放文件路径名和目录项对象 索引节点缓存：存放描述磁盘索引节点的对">
@@ -273,6 +274,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -463,6 +475,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Windows 网络</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
