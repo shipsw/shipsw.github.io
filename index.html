@@ -5,12 +5,12 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://blog.guod.bid">
   <title>电子傻瓜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="电子傻瓜">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://blog.guod.bid/index.html">
 <meta property="og:site_name" content="电子傻瓜">
 <meta property="og:locale" content="zh">
 <meta name="twitter:card" content="summary">
@@ -151,6 +151,138 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Linux下的磁盘缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/13/Linux下的磁盘缓存/">Linux下的磁盘缓存</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/13/Linux下的磁盘缓存/" class="archive-article-date">
+  	<time datetime="2019-02-13T08:24:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux下的磁盘缓存"><a href="#Linux下的磁盘缓存" class="headerlink" title="Linux下的磁盘缓存"></a>Linux下的磁盘缓存</h1><hr>
+<p>Linux可以兼容不同的文件系统，使用的是VFS(Virtual File System)技术。该技术在提供兼容性的同时，更提供了磁盘缓存机制。VFS的磁盘缓存机制是一种软件机制，允许将原本存储在磁盘上的信息存储到内存中，方便对文件进行更加快速的访问，而不必访问磁盘。其中缓存分为以下几种：</p>
+<ul>
+<li>目录项缓存：主要存放文件路径名和目录项对象</li>
+<li>索引节点缓存：存放描述磁盘索引节点的对象</li>
+<li>页高速缓存：存放完整的页对象。每个页中的数据属于某个文件。所有读写操作依赖页缓存。</li>
+</ul>
+<h2 id="VFS缓存工作机制"><a href="#VFS缓存工作机制" class="headerlink" title="VFS缓存工作机制"></a>VFS缓存工作机制</h2><p>内核是如何将数据写回磁盘的，看以下两点：</p>
+<h3 id="脏页写入磁盘"><a href="#脏页写入磁盘" class="headerlink" title="脏页写入磁盘"></a>脏页写入磁盘</h3><p>正如我们所了解的，内核不断用包含块设备数据的页填充页高速缓存。只要进程修改了数据，相应的页就被标记为脏页，即把它的PG_dirty标志位置。  </p>
+<p>Unix系统允许把脏缓冲区写入块设备的操作延迟执行，因为这种策略可以显著地提高系统的性能。对高速缓存中的页的几次写操作可能只需对相应的磁盘块进行一次缓慢的物理更新就可以满足。此外，写操作没有读操作那么紧迫，因为进程通常是不会因为延迟写而挂起，而大部分情况都因为延迟读而挂起。正是由于延迟写，使得任一物理块设备平均为读请求提供服务将多于写请求。</p>
+<p>一个脏页可能直到最后一刻（即直到系统关闭时）都一直逗留在主存中。然而，从延迟写策略的局限性来看，它有两个主要的缺点：  </p>
+<p>一、如果发生了硬件错误或者电源掉电的情况，那么就无法再获得RAM的内容，因此，从系统启动以来对文件进行的很多修改就丢失了。  </p>
+<p>二、页高速缓存的大小（由此存放它所需的RAM的大小）就可要很大——至少要与所访问块设备的大小不同。</p>
+<p>因此，在下列条件下把脏页刷新（写入）到磁盘：</p>
+<ul>
+<li>页高速缓存变得太满，但还需要更多的页，或者脏页的数量已经太多。</li>
+<li>自从页变成脏页以来已过去太长时间。<br>进程请求对块设备或者特定文件任何待定的变化都进行刷新。通过调用sync()、fsync()或者fdatasync()系统调用来实现。<br>缓冲区页的引入是问题更加复杂。与每个缓冲区页相关的缓冲区首部使内核能够了解每个独立块缓冲区的状态。如果至少有一个缓冲区首部的PG_Dirty标志被置位，就应该设置相应缓冲区页的PG_dirty标志。当内核选择要刷新的缓冲区时，它扫描相应的缓冲区首部，并只把脏块的内容有效的写到磁盘。一旦内核把缓冲区的所有脏页刷新到磁盘，就把页的PG_dirty标志清0。</li>
+</ul>
+<h3 id="pdflush内核线程"><a href="#pdflush内核线程" class="headerlink" title="pdflush内核线程"></a>pdflush内核线程</h3><p>早期版本的Linux使用bdfllush内核线程系统地扫描页高速缓存以搜索要刷新的脏页，并且使用另一个内核线程kupdate来保证所有的页不会“脏”太长时间。Linux 2.6用一组通用内核线程pdflush替代上述两个线程。  </p>
+<p>这些内核线程结构灵活，它们作用于两个参数：一个指向线程要执行的函数的指针和一个函数要用的参数。系统中pdflush内核线程的数量是要动态调整的：pdflush线程太少时就创建，太多时就杀死。因为这些内核线程所执行的函数可以阻塞，所以创建多个而不是一个pdflush内核线程可以改善系统性能。  </p>
+<p>根据下面的原则控制pdflush线程的产生和消亡：</p>
+<ul>
+<li>必须有至少两个，最多八个pdflush内核线程</li>
+<li>如果到最近的1s期间没有空闲pdflush，就应该创建新的pdflush线程</li>
+<li>如果最近一次pdflush变为空闲的时间超过了1s，就应该删除一个pdflush线程</li>
+<li>所有的pdflush内核线程都有pdflush_work描述符，其数据结构如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>struct task_struct</td>
+<td>who</td>
+<td>指向内核线程描述符的指针</td>
+</tr>
+<tr>
+<td>void (*) (unsigned long)</td>
+<td>fn</td>
+<td>内核线程所执行的回调函数</td>
+</tr>
+<tr>
+<td>unsigned long</td>
+<td>arg0</td>
+<td>给回调函数的参数</td>
+</tr>
+<tr>
+<td>struct list head</td>
+<td>list</td>
+<td>pdflush_list链表的链接</td>
+</tr>
+<tr>
+<td>unsigned long</td>
+<td>when_i_went_to_sleep</td>
+<td>当内核线程可用时的时间（以jiffies表示）</td>
+</tr>
+</tbody>
+</table>
+<p>当系统没有要刷新的脏页时，pdflush线程会自动处于睡眠状态，最后由pdflush_operation()函数来唤醒。那么在这个过程中pdflush内核线程主要完成了哪些工作呢？其中一些工作与脏数据的刷新有关。尤其是pdflush通常执行下面的回调函数之一：  </p>
+<ol>
+<li>background_writeout(): 系统地扫描页高速缓存以搜索要刷新的脏页。<br>为了得到需要刷新的脏页，就要彻底的搜索与在磁盘上有映像的索引节点相应的所有address_space对象（是一棵搜索树）。由于页高速缓存可能有大量的页，如果用一个单独的执行流来扫描整个高速缓存，会令CPU和磁盘长时间繁忙，因此，Linux使用一种复杂的机制把对页高速缓存的扫描划分为几个执行流。当内存不足或者用户显式的（用户态进程发出sync()系统调用等）调用请求刷新操作时会执行wakeup_bdflush()函数。wakeup_bdflush()函数会调用pdflush_operation()唤醒pdflush内核线程，并委托它执行回调函数background_writeout()。background_writeout()函数有效的从页高速缓存中获得指定数量的脏页，并把它写回磁盘。此外，执行background_writeout()函数的pdflush内核线程只有在满足以下两个条件下才能被唤醒：一是对页高速缓存中的页内容进行了修改，二是引起脏页部分增加到超过某个脏背景阈值。背景阈值通常设置为系统中所有页的10%，不过可以通过修改文件/proc/sys/vm/dirty_background_ratio来调整该值。</li>
+<li>wb_kupdate():检查页高速缓存中是否有“脏”了很久时间的页，避免当一些页很久没有被刷新时发生饥饿危险。<br>内核在初始化期间会建立wb_timer动态定时器，其的定时间距为dirty_writeback_centisecs文件中所规定的几百分之一秒（通常是500分之一秒，不过可以通过修改/proc/sys/vm/dirty_writeback_centisecs文件调整该值）。定时器函数会调用pdflush_operation()函数，然后将wb_kupdate()函数的地址传入。wb_kupdate()函数遍历页高速缓存搜索陈旧的脏索引节点，把已保持脏状态时间超过30秒的页都写到磁盘，之后重置定时器。</li>
+</ol>
+<hr>
+<p>作者：cywosp<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/cywosp/article/details/21126161" target="_blank" rel="noopener">https://blog.csdn.net/cywosp/article/details/21126161</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/13/Linux下的磁盘缓存/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-在windows上用netsh动态配置端口转发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -310,7 +442,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Gino
+    		&copy; 2019 Gino
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
