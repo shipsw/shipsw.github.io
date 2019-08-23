@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.guod.bid">
-  <title>Linux下的磁盘缓存 | 电子傻瓜</title>
+  <title>什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定 | 电子傻瓜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux下的磁盘缓存 Linux可以兼容不同的文件系统，使用的是VFS(Virtual File System)技术。该技术在提供兼容性的同时，更提供了磁盘缓存机制。VFS的磁盘缓存机制是一种软件机制，允许将原本存储在磁盘上的信息存储到内存中，方便对文件进行更加快速的访问，而不必访问磁盘。其中缓存分为以下几种：  目录项缓存：主要存放文件路径名和目录项对象 索引节点缓存：存放描述磁盘索引节点的对">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定DNSDomain Name System或者Domain Name Service（域名系统或者域名服务）。域名系统为Internet上的主机分配域名地址和IP地址。由于网络中的计算机都必须有个IP地址，来识别,互相之间才能通信,但让我们记住一大串的IP地址来访问网站显">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux下的磁盘缓存">
-<meta property="og:url" content="http://blog.guod.bid/2019/02/13/Linux下的磁盘缓存/index.html">
+<meta property="og:title" content="什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定">
+<meta property="og:url" content="http://blog.guod.bid/2019/08/23/什么是DNS-A记录-子域名-CNAME别名-MX记录-TXT记录-SRV-记录-TTL值-泛域名-泛解析-域名转向-域名绑定/index.html">
 <meta property="og:site_name" content="电子傻瓜">
-<meta property="og:description" content="Linux下的磁盘缓存 Linux可以兼容不同的文件系统，使用的是VFS(Virtual File System)技术。该技术在提供兼容性的同时，更提供了磁盘缓存机制。VFS的磁盘缓存机制是一种软件机制，允许将原本存储在磁盘上的信息存储到内存中，方便对文件进行更加快速的访问，而不必访问磁盘。其中缓存分为以下几种：  目录项缓存：主要存放文件路径名和目录项对象 索引节点缓存：存放描述磁盘索引节点的对">
+<meta property="og:description" content="什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定DNSDomain Name System或者Domain Name Service（域名系统或者域名服务）。域名系统为Internet上的主机分配域名地址和IP地址。由于网络中的计算机都必须有个IP地址，来识别,互相之间才能通信,但让我们记住一大串的IP地址来访问网站显">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-02-13T09:33:23.000Z">
+<meta property="og:updated_time" content="2019-08-23T01:48:30.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux下的磁盘缓存">
-<meta name="twitter:description" content="Linux下的磁盘缓存 Linux可以兼容不同的文件系统，使用的是VFS(Virtual File System)技术。该技术在提供兼容性的同时，更提供了磁盘缓存机制。VFS的磁盘缓存机制是一种软件机制，允许将原本存储在磁盘上的信息存储到内存中，方便对文件进行更加快速的访问，而不必访问磁盘。其中缓存分为以下几种：  目录项缓存：主要存放文件路径名和目录项对象 索引节点缓存：存放描述磁盘索引节点的对">
+<meta name="twitter:title" content="什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定">
+<meta name="twitter:description" content="什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定DNSDomain Name System或者Domain Name Service（域名系统或者域名服务）。域名系统为Internet上的主机分配域名地址和IP地址。由于网络中的计算机都必须有个IP地址，来识别,互相之间才能通信,但让我们记住一大串的IP地址来访问网站显">
   
     <link rel="alternative" href="/atom.xml" title="电子傻瓜" type="application/atom+xml">
   
@@ -155,96 +154,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux下的磁盘缓存" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-什么是DNS-A记录-子域名-CNAME别名-MX记录-TXT记录-SRV-记录-TTL值-泛域名-泛解析-域名转向-域名绑定" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux下的磁盘缓存
+      什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定
     </h1>
   
 
         
-        <a href="/2019/02/13/Linux下的磁盘缓存/" class="archive-article-date">
-  	<time datetime="2019-02-13T08:24:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+        <a href="/2019/08/23/什么是DNS-A记录-子域名-CNAME别名-MX记录-TXT记录-SRV-记录-TTL值-泛域名-泛解析-域名转向-域名绑定/" class="archive-article-date">
+  	<time datetime="2019-08-23T01:47:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Linux下的磁盘缓存"><a href="#Linux下的磁盘缓存" class="headerlink" title="Linux下的磁盘缓存"></a>Linux下的磁盘缓存</h1><hr>
-<p>Linux可以兼容不同的文件系统，使用的是VFS(Virtual File System)技术。该技术在提供兼容性的同时，更提供了磁盘缓存机制。VFS的磁盘缓存机制是一种软件机制，允许将原本存储在磁盘上的信息存储到内存中，方便对文件进行更加快速的访问，而不必访问磁盘。其中缓存分为以下几种：</p>
+        <h1 id="什么是DNS-A记录-子域名-CNAME别名-MX记录-TXT记录-SRV-记录-TTL值-泛域名-泛解析-域名转向-域名绑定"><a href="#什么是DNS-A记录-子域名-CNAME别名-MX记录-TXT记录-SRV-记录-TTL值-泛域名-泛解析-域名转向-域名绑定" class="headerlink" title="什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定"></a>什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定</h1><h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>Domain Name System或者Domain Name Service（域名系统或者域名服务）。域名系统为Internet上的主机分配域名地址和IP地址。由于网络中的计算机都必须有个IP地址，来识别,互相之间才能通信,但让我们记住一大串的IP地址来访问网站显然是不可能的,所以用户使用域名地址，而DNS系统的功能就是自动把域名地址翻译为IP地址。域名服务是运行域名系统的Internet工具。执行域名服务的服务器称之为DNS服务器，通过DNS服务器来应答域名服务的查询。</p>
 <ul>
-<li>目录项缓存：主要存放文件路径名和目录项对象</li>
-<li>索引节点缓存：存放描述磁盘索引节点的对象</li>
-<li>页高速缓存：存放完整的页对象。每个页中的数据属于某个文件。所有读写操作依赖页缓存。</li>
+<li>1、DNS就是域名服务器，他的任务就是确定域名的解析，比如A记录MX记录等等。 </li>
+<li>2、任何域名都至少有一个DNS，一般是2个。但为什么要2个以上呢？因为DNS可以轮回处理，这样第一个解析失败可以找第二个。这样只要有一个DNS解析正常，就不会影响域名的正常使用。 </li>
+<li>3、如何确定域名的DNS<br>很简单，到 www.internic.net/whois.html 输入你要查询的域名就可以看到了。这个是国际域名管理中心。唯一的权威。只要这里能查到某个域名，就表示域名是生效的。它说你什么时候到期，就是什么时候到期。 </li>
+<li>4、有效的DNS表示当前正在起作用的DNS服务器是谁，比如查询结果是NS.XINNETDNS.COM、NS.XINNET.CN(新网信海)就表示当前域名是由NS.XINNETDNS.COM、NS.XINNET.CN(新网信海)负责解析。其他未显示的DNS的设置，都是无效的。 </li>
+<li>5、DNS是可以修改的。修改以后需要24-72小时以后，全世界范围的所有DNS服务器才能刷新过来。internic的信息一般在24小时以后可以看到。另外，修改的过程，并不表示域名会停止解析，只要你在2边都做好了解析。如果生效了就是新的DNS在起作用。如果没生效。就是旧的DNS在起作用。要么生效，要么不生效。不存在2个都不起作用的时间。所以域名解析，不会中断。前提是两边都做了解析。 <h2 id="A记录"><a href="#A记录" class="headerlink" title="A记录"></a>A记录</h2></li>
+<li>A (Address) 记录是用来指定主机名（或域名）对应的IP地址记录。用户可以将该域名下的网站服务器指向到自己的web server上。同时也可以设置您域名的子域名。通俗来说A记录就是服务器的IP,域名绑定A记录就是告诉DNS,当你输入域名的时候给你引导向设置在DNS的A记录所对应的服务器 </li>
 </ul>
-<h2 id="VFS缓存工作机制"><a href="#VFS缓存工作机制" class="headerlink" title="VFS缓存工作机制"></a>VFS缓存工作机制</h2><p>内核是如何将数据写回磁盘的，看以下两点：</p>
-<h3 id="脏页写入磁盘"><a href="#脏页写入磁盘" class="headerlink" title="脏页写入磁盘"></a>脏页写入磁盘</h3><p>正如我们所了解的，内核不断用包含块设备数据的页填充页高速缓存。只要进程修改了数据，相应的页就被标记为脏页，即把它的PG_dirty标志位置。  </p>
-<p>Unix系统允许把脏缓冲区写入块设备的操作延迟执行，因为这种策略可以显著地提高系统的性能。对高速缓存中的页的几次写操作可能只需对相应的磁盘块进行一次缓慢的物理更新就可以满足。此外，写操作没有读操作那么紧迫，因为进程通常是不会因为延迟写而挂起，而大部分情况都因为延迟读而挂起。正是由于延迟写，使得任一物理块设备平均为读请求提供服务将多于写请求。</p>
-<p>一个脏页可能直到最后一刻（即直到系统关闭时）都一直逗留在主存中。然而，从延迟写策略的局限性来看，它有两个主要的缺点：  </p>
-<p>一、如果发生了硬件错误或者电源掉电的情况，那么就无法再获得RAM的内容，因此，从系统启动以来对文件进行的很多修改就丢失了。  </p>
-<p>二、页高速缓存的大小（由此存放它所需的RAM的大小）就可要很大——至少要与所访问块设备的大小不同。</p>
-<p>因此，在下列条件下把脏页刷新（写入）到磁盘：</p>
+<blockquote>
+<p>eg , xxx.com –&gt; 1.2.3.4</p>
+</blockquote>
+<h2 id="子域名"><a href="#子域名" class="headerlink" title="子域名"></a>子域名</h2><p>子域名道理等同二级域名，不过比二级域名更加延伸，比如我们继续扩展该域名的主机名，设置主机名为bbs.at,那么就可以建立一个三级域名：bbs.at.abc.com，当然也可以建立四级域名bbs.at.go.abc.com，五级域名bbs.at.go.home.abc.com……，依次类推，可以建立无限级别的域名，我们统称这些域名为顶级域名abc.com的子域名。</p>
+<h2 id="CNAME-别名指向记录"><a href="#CNAME-别名指向记录" class="headerlink" title="CNAME 别名指向记录"></a>CNAME 别名指向记录</h2><p>NAME (Canonical Name)记录，通常称别名指向。在这里，您可以定义一个主机别名，比如设置ftp.***.com，用来指向一个主机www.***.com,那么以后就可以用FTP.***.com来代替访问www.***.com了。</p>
+<h2 id="MX记录"><a href="#MX记录" class="headerlink" title="MX记录"></a>MX记录</h2><p>MX记录也叫做邮件路由记录，用户可以将该域名下的邮件服务器指向到自己的mail server上，然后即可自行操控所有的邮箱设置。您只需在线填写您服务器的IP地址，即可将您域名下的邮件全部转到您自己设定相应的邮件服务器上。<br>简单的说，通过操作MX记录，您才可以得到以您域名结尾的邮局。</p>
+<h2 id="TXT-记录"><a href="#TXT-记录" class="headerlink" title="TXT 记录"></a>TXT 记录</h2><p>TXT 记录，一般指为某个主机名或域名设置的说明，如：<br>admin IN TXT “管理员, 电话： 13901234567”<br>mail IN TXT “邮件主机, 存放在xxx , 管理人：AAA”<br>Jim IN TXT “contact: [email]abc@mailserver.com[/email]”<br>也就是您可以设置 TXT ，以便使别人联系到您 </p>
+<h2 id="SRV-记录"><a href="#SRV-记录" class="headerlink" title="SRV 记录"></a>SRV 记录</h2><p>SRV 记录：一般是为 <strong><em>Microsoft</em></strong> 的活动目录设置时的应用。DNS可以独立于活动目录，但是活动目录必须有DNS的帮助才能工作。为了活动目录能够正常的工作，DNS服务器必须支持服务定位（SRV）资源记录，资源记录把服务名字映射为提供服务的服务器名字。活动目录客户和域控制器使用SRV资源记录决定域控制器的IP地址。此技术细节请参考相应网站</p>
+<h2 id="TTL值"><a href="#TTL值" class="headerlink" title="TTL值"></a>TTL值</h2><p>TTL值全称是“生存时间（Time To Live)”，简单的说它表示DNS记录在DNS服务器上缓存时间。<br>要理解TTL值，请先看下面的一个例子： </p>
+<blockquote>
+<p>假设，有这样一个域名myhost.abc.com（其实，这就是一条DNS记录，通常表示在abc.com域中有一台名为myhost的主机）对应IP地址为1.1.1.1，它的TTL为10分钟。这个域名或称这条记录存储在一台名为dns.abc.com的DNS服务器上。<br>现在有一个用户在浏览器中键入一下地址（又称URL）：<a href="http://myhost.abc.com这时会发生什么呢？" target="_blank" rel="noopener">http://myhost.abc.com这时会发生什么呢？</a><br>该访问者指定的DNS服务器（或是他的ISP,互联网服务商, 动态分配给他的)8.8.8.8就会试图为他解释myhost.abc.com，当然8.8.8.8这台DNS服务器由于没有包含myhost.abc.com这条信息，因此无法立即解析，但是通过全球DNS的递归查询后，最终定位到dns.abc.com这台DNS服务器，dns.abc.com这台DNS服务器将myhost.abc.com对应的IP地址1.1.1.1告诉8.8.8.8这台DNS服务器，然有再由8.8.8.8告诉用户结果。8.8.8.8为了以后加快对myhost.abc.com这条记录的解析，就将刚才的1.1.1.1结果保留一段时间，这就是TTL时间，在这段时间内如果用户又有对myhost.abc.com这条记录的解析请求，它就直接告诉用户1.1.1.1，当TTL到期则又会重复上面的过程</p>
+</blockquote>
+<h2 id="泛域名与泛解析"><a href="#泛域名与泛解析" class="headerlink" title="泛域名与泛解析"></a>泛域名与泛解析</h2><p>泛域名是指在一个域名根下，以 <em>.Domain.com 的形式表示这个域名根所有未建立的子域名。<br>泛解析是把</em>.Domain.com 的A 记录解析到某个IP 地址上,然后别人通过任意的前缀.domain.com访问都能访问到你解析的站点上<br>例如： </p>
+<blockquote>
+<p>域名根　name.com 只建立了 www.name.com 和 name.com 这两个域名记录，那么 ftp.name.com mail.name.com bbs.name.com 等域名记录是不存在的，但为域名根 name.com 建立泛域名记录 <em>.name.com 后，</em>.name.com 就涵盖了 ftp.name.com mail.name.com bbs.name.com 等所有不存在的子域名记录。您可以定义 <em>.name.com 指向一个 IP ，那么当访问者无论是输入 ftp.name.com mail.name.com 或 bbs.name.com 的时候，访问者都将直接访问您定义 </em>.name.com 的那个 IP 。</p>
+</blockquote>
+<h2 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h2><p>域名绑定，域名绑定是指域名和主机(即某个服务器)的空间进行关联绑定,其实就是在虚拟服务器或WEB服务器上设置，使一个域名被引导向服务器上的某一特定空间（站点），访问者访问你的域名的时候就会打开你存放在该空间上的网页，简单来说其实就是把域名解析到服务器IP,然后在服务器上设置该域名有权限访问的过程。一般虚拟主机有控制面板给进行绑定域名，如果没有面板就需要自己在服务器上的IIS里面设置</p>
+<h2 id="域名转向"><a href="#域名转向" class="headerlink" title="域名转向"></a>域名转向</h2><p>域名转向我们又称为域名(URL)指向或域名转发，当用户地址栏中输入您的域名时，将会自动跳转到您所指定的另一个网络地址（URL）。<br>　　假设abc.com是您注册的域名，则通过URL转发服务可以实现当用户访问 <a href="http://www.abc.com" target="_blank" rel="noopener">http://www.abc.com</a> 时，自动转向访问另外一个URL，如:我的空间不支持绑定到目录功能,所以为了方便访问者,我就设置: <a href="http://bbs.bnxb.com" target="_blank" rel="noopener">http://bbs.bnxb.com</a> 来访问,这个是设置了通过URL转发服务转发到 <a href="http://www.bnxb.com/bbs" target="_blank" rel="noopener">http://www.bnxb.com/bbs</a> 上面来实现的，这样您就可以轻松实现多个域名指向一个网站或网站子目录；另外，通过URL转发服务，可以方便的实现将您的中文域名，设置自动转发到您的英文域名主站点。域名转发的另外一个好处就是可以把长域名压缩,用短域名的转向代替,让你的访客不需输入那么长的域名</p>
+<h2 id="IIS连接数"><a href="#IIS连接数" class="headerlink" title="IIS连接数"></a>IIS连接数</h2><p>IIS连接数指并发连接数，什么意思呢？<br>要分几种情况：（以100M空间50人在线为例）</p>
 <ul>
-<li>页高速缓存变得太满，但还需要更多的页，或者脏页的数量已经太多。</li>
-<li>自从页变成脏页以来已过去太长时间。<br>进程请求对块设备或者特定文件任何待定的变化都进行刷新。通过调用sync()、fsync()或者fdatasync()系统调用来实现。<br>缓冲区页的引入是问题更加复杂。与每个缓冲区页相关的缓冲区首部使内核能够了解每个独立块缓冲区的状态。如果至少有一个缓冲区首部的PG_Dirty标志被置位，就应该设置相应缓冲区页的PG_dirty标志。当内核选择要刷新的缓冲区时，它扫描相应的缓冲区首部，并只把脏块的内容有效的写到磁盘。一旦内核把缓冲区的所有脏页刷新到磁盘，就把页的PG_dirty标志清0。</li>
+<li>A 用户单点下载你的文件，结束后正常断开，这些连接是按照瞬间计算的，就是说你50人的网站瞬间可以接受同时50个点下载</li>
+<li>B 用户打开你的页面，就算停留在该页面，这时候网页已经加载完了没有对服务器再发出任何请求，那么在用户完全打开这个页面的时间内算一个在线，在页面完全打开后IIS连接数就释放。</li>
+<li>C 上面B的情况用户继续打开同一个网站的其他页面，那么在线人数按照用户最后一次点击（发出请求）计算，在这个时间内不管用户怎么点击（包括新窗口打开）都还是一人在线。</li>
+<li>D 当你的页面内存在框架(Iframe)，那么每多一个框架就要多一倍的在线！因为这相当于用户同一时间向服务器请求了多个页面。</li>
+<li>E 当用户打开页面然后正常关闭浏览器，用户的在线人数也会马上清除。</li>
 </ul>
-<h3 id="pdflush内核线程"><a href="#pdflush内核线程" class="headerlink" title="pdflush内核线程"></a>pdflush内核线程</h3><p>早期版本的Linux使用bdfllush内核线程系统地扫描页高速缓存以搜索要刷新的脏页，并且使用另一个内核线程kupdate来保证所有的页不会“脏”太长时间。Linux 2.6用一组通用内核线程pdflush替代上述两个线程。  </p>
-<p>这些内核线程结构灵活，它们作用于两个参数：一个指向线程要执行的函数的指针和一个函数要用的参数。系统中pdflush内核线程的数量是要动态调整的：pdflush线程太少时就创建，太多时就杀死。因为这些内核线程所执行的函数可以阻塞，所以创建多个而不是一个pdflush内核线程可以改善系统性能。  </p>
-<p>根据下面的原则控制pdflush线程的产生和消亡：</p>
-<ul>
-<li>必须有至少两个，最多八个pdflush内核线程</li>
-<li>如果到最近的1s期间没有空闲pdflush，就应该创建新的pdflush线程</li>
-<li>如果最近一次pdflush变为空闲的时间超过了1s，就应该删除一个pdflush线程</li>
-<li>所有的pdflush内核线程都有pdflush_work描述符，其数据结构如下：</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>字段</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>struct task_struct</td>
-<td>who</td>
-<td>指向内核线程描述符的指针</td>
-</tr>
-<tr>
-<td>void (*) (unsigned long)</td>
-<td>fn</td>
-<td>内核线程所执行的回调函数</td>
-</tr>
-<tr>
-<td>unsigned long</td>
-<td>arg0</td>
-<td>给回调函数的参数</td>
-</tr>
-<tr>
-<td>struct list head</td>
-<td>list</td>
-<td>pdflush_list链表的链接</td>
-</tr>
-<tr>
-<td>unsigned long</td>
-<td>when_i_went_to_sleep</td>
-<td>当内核线程可用时的时间（以jiffies表示）</td>
-</tr>
-</tbody>
-</table>
-<p>当系统没有要刷新的脏页时，pdflush线程会自动处于睡眠状态，最后由pdflush_operation()函数来唤醒。那么在这个过程中pdflush内核线程主要完成了哪些工作呢？其中一些工作与脏数据的刷新有关。尤其是pdflush通常执行下面的回调函数之一：  </p>
-<ol>
-<li>background_writeout(): 系统地扫描页高速缓存以搜索要刷新的脏页。<br>为了得到需要刷新的脏页，就要彻底的搜索与在磁盘上有映像的索引节点相应的所有address_space对象（是一棵搜索树）。由于页高速缓存可能有大量的页，如果用一个单独的执行流来扫描整个高速缓存，会令CPU和磁盘长时间繁忙，因此，Linux使用一种复杂的机制把对页高速缓存的扫描划分为几个执行流。当内存不足或者用户显式的（用户态进程发出sync()系统调用等）调用请求刷新操作时会执行wakeup_bdflush()函数。wakeup_bdflush()函数会调用pdflush_operation()唤醒pdflush内核线程，并委托它执行回调函数background_writeout()。background_writeout()函数有效的从页高速缓存中获得指定数量的脏页，并把它写回磁盘。此外，执行background_writeout()函数的pdflush内核线程只有在满足以下两个条件下才能被唤醒：一是对页高速缓存中的页内容进行了修改，二是引起脏页部分增加到超过某个脏背景阈值。背景阈值通常设置为系统中所有页的10%，不过可以通过修改文件/proc/sys/vm/dirty_background_ratio来调整该值。</li>
-<li>wb_kupdate():检查页高速缓存中是否有“脏”了很久时间的页，避免当一些页很久没有被刷新时发生饥饿危险。<br>内核在初始化期间会建立wb_timer动态定时器，其的定时间距为dirty_writeback_centisecs文件中所规定的几百分之一秒（通常是500分之一秒，不过可以通过修改/proc/sys/vm/dirty_writeback_centisecs文件调整该值）。定时器函数会调用pdflush_operation()函数，然后将wb_kupdate()函数的地址传入。wb_kupdate()函数遍历页高速缓存搜索陈旧的脏索引节点，把已保持脏状态时间超过30秒的页都写到磁盘，之后重置定时器。</li>
-</ol>
-<hr>
-<p>作者：cywosp<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/cywosp/article/details/21126161" target="_blank" rel="noopener">https://blog.csdn.net/cywosp/article/details/21126161</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
 
       
 
@@ -274,17 +238,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -335,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://blog.guod.bid/2019/02/13/Linux下的磁盘缓存/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.guod.bid/2019/08/23/什么是DNS-A记录-子域名-CNAME别名-MX记录-TXT记录-SRV-记录-TTL值-泛域名-泛解析-域名转向-域名绑定/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,18 +302,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/23/什么是DNS-A记录-子域名-CNAME别名-MX记录-TXT记录-SRV-记录-TTL值-泛域名-泛解析-域名转向-域名绑定/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          什么是DNS,A记录,子域名,CNAME别名,MX记录,TXT记录,SRV 记录,TTL值,泛域名(泛解析),域名转向,域名绑定
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/15/在windows上用netsh动态配置端口转发/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在windows上用netsh动态配置端口转发</div>
+    <a href="/2019/02/13/Linux下的磁盘缓存/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux下的磁盘缓存</div>
       <i class="icon-circle-right"></i>
     </a>
   
